@@ -12,14 +12,8 @@ fun main(args: Array<String>) {
     println("Saldo da conta $saldo")
 
     when {
-        saldo > 0 -> {
-            println("Tem dinheiro na conta")
-        }
-        saldo < 0 -> {
-            println("Sua conta está negativa")
-        }
-        else -> {
-            println("Não tem dinheiro na conta")
-        }
+        saldo > 0 -> println("Tem dinheiro na conta")
+        saldo < 0 ->println("Sua conta está negativa")
+        else -> println("Não tem dinheiro na conta")
     }
 }
