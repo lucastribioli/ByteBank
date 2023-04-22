@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
     println("Bem vindo ao ByteBank")
-    val conta = criarConta("Adilson", 12, 419.0)
+    val conta = Conta("Adilson", 12)
     conta.depositar(7666.0)
     conta.sacar(10.0)
 
@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
     println("Número da conta ${conta.numeroConta}")
     println("Saldo ${conta.saldo}")
 
-    val conta2 = criarConta("Joãozinho", 1343, 41553.0)
+    val conta2 = Conta("Joãozinho", 1343)
     conta2.depositar(10.0)
     conta2.sacar(100000.0)
 
@@ -19,10 +19,13 @@ fun main(args: Array<String>) {
     conta2.transferir(conta, 100000.0)
 }
 
-class Conta {
-    var titular = ""
-    var numeroConta = 0
+class Conta(var titular: String, var numeroConta: Int) {
     var saldo = 0.0
+        set(valor){
+            if (valor > 0) {
+                field = valor
+            }
+        }
 
     fun depositar(valor: Double){
         this.saldo += valor
@@ -49,16 +52,6 @@ class Conta {
         }
 
     }
-}
-
-fun criarConta(titular: String, numeroConta: Int, saldo: Double): Conta {
-    val conta = Conta()
-    conta.titular = titular
-    conta.numeroConta = numeroConta
-    conta.saldo = saldo
-
-    return conta
-
 }
 
 fun testarLoop(){
