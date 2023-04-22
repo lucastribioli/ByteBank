@@ -1,6 +1,35 @@
 fun main(args: Array<String>) {
     println("Bem vindo ao ByteBank")
+    var conta = criarConta("Adilson", 12, 419.0)
 
+    println(conta.titular)
+    println(conta.numeroConta)
+    println(conta.saldo)
+
+    conta = criarConta("Joãozinho", 1343, 41553.0)
+
+    println(conta.titular)
+    println(conta.numeroConta)
+    println(conta.saldo)
+}
+
+class Conta {
+    var titular = ""
+    var numeroConta = 0
+    var saldo = 0.0
+}
+
+fun criarConta(titular: String, numeroConta: Int, saldo: Double): Conta {
+    val conta = Conta()
+    conta.titular = titular
+    conta.numeroConta = numeroConta
+    conta.saldo = saldo
+
+    return conta
+
+}
+
+fun testarLoop(){
     for (i in 5 downTo  1){
         val titular: String = "Lucas $i"
         val numeroConta: Int = 999 + i
