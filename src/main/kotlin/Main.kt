@@ -1,7 +1,7 @@
 fun main(args: Array<String>) {
     println("Hello World!")
 
-    for (i in 1..5){
+    for (i in 5 downTo  1){
         val titular: String = "Lucas $i"
         val numeroConta: Int = 999 + i
         var saldo: Double = 0.0
