@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
     println("Bem vindo ao ByteBank")
-    var conta = criarConta("Adilson", 12, 419.0)
+    val conta = criarConta("Adilson", 12, 419.0)
     conta.depositar(7666.0)
     conta.sacar(10.0)
 
@@ -8,13 +8,15 @@ fun main(args: Array<String>) {
     println("Número da conta ${conta.numeroConta}")
     println("Saldo ${conta.saldo}")
 
-    conta = criarConta("Joãozinho", 1343, 41553.0)
-    conta.depositar(10.0)
-    conta.sacar(100000.0)
+    val conta2 = criarConta("Joãozinho", 1343, 41553.0)
+    conta2.depositar(10.0)
+    conta2.sacar(100000.0)
 
-    println("Titular ${conta.titular}")
-    println("Número da conta ${conta.numeroConta}")
-    println("Saldo ${conta.saldo}")
+    println("Titular ${conta2.titular}")
+    println("Número da conta ${conta2.numeroConta}")
+    println("Saldo ${conta2.saldo}")
+
+    conta2.transferir(conta, 100000.0)
 }
 
 class Conta {
@@ -26,13 +28,26 @@ class Conta {
         this.saldo += valor
         println("Valor depositado na conta do ${this.titular}, no valor de $valor")
     }
-    fun sacar(valor:Double){
-        if (this.saldo >= valor){
+
+    fun sacar(valor:Double): Boolean{
+        return if (this.saldo >= valor){
             this.saldo -= valor
             println("Saque concluído com sucesso, seu saldo agora é ${this.saldo}")
+            true
         }else{
             println("Valor acima do permitido para saque, você tem apenas ${this.saldo}")
+            false
         }
+    }
+
+    fun transferir(conta: Conta, valor: Double){
+        if (conta.sacar(valor)){
+            this.depositar(valor)
+            println("Valor depositado na conta do ${this.titular}, com sucesso")
+        }else{
+            println("Valor não pode ser depositado")
+        }
+
     }
 }
 
