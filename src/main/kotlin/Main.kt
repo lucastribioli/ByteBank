@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    println("Bem vindo ao ByteBank")
 
     for (i in 5 downTo  1){
         val titular: String = "Lucas $i"
@@ -13,10 +13,7 @@ fun main(args: Array<String>) {
         println("Número da conta $numeroConta")
         println("Saldo da conta $saldo")
         testarCondicoes(saldo)
-
     }
-
-
 }
 fun testarCondicoes(saldo: Double){
     when {
