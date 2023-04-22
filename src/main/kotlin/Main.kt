@@ -2,21 +2,27 @@ fun main(args: Array<String>) {
     println("Bem vindo ao ByteBank")
     var conta = criarConta("Adilson", 12, 419.0)
 
-    println(conta.titular)
-    println(conta.numeroConta)
-    println(conta.saldo)
+    println("Titular ${conta.titular}")
+    println("Número da conta ${conta.numeroConta}")
+    println("Saldo ${conta.saldo}")
 
     conta = criarConta("Joãozinho", 1343, 41553.0)
+    conta.depositar(10.0)
 
-    println(conta.titular)
-    println(conta.numeroConta)
-    println(conta.saldo)
+    println("Titular ${conta.titular}")
+    println("Número da conta ${conta.numeroConta}")
+    println("Saldo ${conta.saldo}")
 }
 
 class Conta {
     var titular = ""
     var numeroConta = 0
     var saldo = 0.0
+
+    fun depositar(valor: Double){
+        this.saldo += valor
+        println("Valor depositado na conta do ${this.titular}, no valor de $valor")
+    }
 }
 
 fun criarConta(titular: String, numeroConta: Int, saldo: Double): Conta {
