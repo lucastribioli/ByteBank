@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
     println("Bem vindo ao ByteBank")
-    val conta = Conta("Adilson", 12)
+    val conta = Conta(titular = "Adilson", numeroConta = 12)
     conta.depositar(7666.0)
     conta.sacar(10.0)
 
