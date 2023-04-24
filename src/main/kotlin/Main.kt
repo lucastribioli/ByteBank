@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
     conta2.transferir(conta, 100000.0)
 }
 
-class Conta(var titular: String, var numeroConta: Int) {
+class Conta(var titular: String, var numeroConta: Int = 0) {
     var saldo = 0.0
         set(valor){
             if (valor > 0) {
